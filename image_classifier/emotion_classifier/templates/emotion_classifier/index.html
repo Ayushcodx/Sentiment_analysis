@@ -1,0 +1,94 @@
+<!-- input.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis on Images</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .custom-upload-button {
+            display: inline-block;
+            padding: 10px 15px;
+            font-size: 14px;
+            cursor: pointer;
+            color: #fff;
+            background-color: #3498db;
+            border: 1px solid #3498db;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        #uploadImage {
+            display: none;
+        }
+
+        #selectedFileName {
+            font-size: 16px;
+            margin-top: 10px;
+            display: block;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            color: #fff;
+            background-color: #27ae60;
+            border: 1px solid #27ae60;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Sentiment Analysis on Images</h2>
+
+        <!-- Form for uploading an image -->
+        <form method="post" enctype="multipart/form-data" action="{% url 'classify' %}">
+            {% csrf_token %}
+
+            <!-- Input for image selection -->
+            {{ form.image }}
+
+            <!-- Custom upload button -->
+        
+            <span id="selectedFileName"></span>
+
+            <!-- Submit button for classification -->
+            <button type="submit">Analyze Sentiment</button>
+        </form>
+
+        <script>
+            // Function to display the selected file name
+            function displayFileName(input) {
+                var fileName = input.files[0].name;
+                document.getElementById('selectedFileName').innerHTML = `Selected File: ${fileName}`;
+            }
+        </script>
+    </div>
+</body>
+</html>
