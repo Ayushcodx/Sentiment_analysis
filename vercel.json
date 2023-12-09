@@ -15,9 +15,5 @@
       "dest": "image_classifier/wsgi.py"
     }
   ],
-  "functions": {
-    "myFunction": {
-      "exclude": ["node_modules/**/*"]
-    }
-  }
+ 
 }
