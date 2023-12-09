@@ -9,7 +9,7 @@ import os
 
 # Get the path to the models folder
 models_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'models')
-svm_classifier = load(os.path.join(models_path, 'emotion_classifier.joblib'))
+
 
 # Assuming you have defined 'width' and 'height' for resizing
 width = 100
@@ -19,7 +19,7 @@ height = 100
 def predict_class(image_path):
     # Load the new image
     new_image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
-
+    svm_classifier = load(os.path.join(models_path, 'emotion_classifier.joblib'))
     if new_image is not None:
         new_image = cv2.resize(new_image, (width, height))  # Resize
         new_feature = new_image.flatten() / 255.0  # Normalize and Flatten
