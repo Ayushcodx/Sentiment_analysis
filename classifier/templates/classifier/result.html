@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Classification Result</title>
+    <style>
+        /* Styling for the body */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* Styling for the main container */
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Styling for the heading */
+        h2 {
+            color: #3498db;
+        }
+
+        /* Styling for the classification result paragraph */
+        p {
+            font-size: 18px;
+            margin-top: 15px;
+            color: #27ae60;
+        }
+
+        /* Styling for the link to upload another image */
+        a {
+            display: block;
+            margin-top: 20px;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .classification-result {
+            font-size: 18px;
+            margin-top: 15px;
+            color: #27ae60;
+        }
+
+        .upload-another {
+            display: block;
+            margin-top: 20px;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+         /* Styling for smaller screens */
+        @media (max-width: 600px) {
+   
+           body {
+              height: auto;
+          }
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- Main container for the result content -->
+    <div class="container">
+        <!-- Heading for the result page -->
+        <h2>Image Classification Result</h2>
+
+        <!-- Display the classification result paragraph -->
+        <p class="classification-result">Classification Result: {{ predicted_class }}</p>
+
+        <!-- Link to go back to the upload form -->
+        <a class="upload-another" href="{% url 'classifier:classify' %}">Upload Another Image</a>
+    </div>
+    
+</body>
+</html>
